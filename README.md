@@ -5,7 +5,12 @@ That are my first steps in creating blockchain smart-contracts using the
 
 # Where is it?
 
-
+The contract is currently deployed at `coinmarketcap.mexus.testnet`, calculating
+average BTC price. To get the current average, replace ACCOUNT_NAME with you
+account on the testnet and run the following:
+```shell
+$ near view coinmarketcap.mexus.testnet get_average --accountId ACCOUNT_NAME
+```
 
 # How to deploy and test
 
