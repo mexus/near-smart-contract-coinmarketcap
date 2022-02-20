@@ -26,6 +26,7 @@ impl PriceHistory {
     ///
     /// Will panic when not enough historical data has been collected.
     pub fn get_average(&self) -> f64 {
+        static_assertions::const_assert_ne!(HISTORY_DEPTH, 0);
         if usize::from(self.recorded) != HISTORY_DEPTH {
             env::panic(b"Not enough historical data has been collected yet")
         }
@@ -45,6 +46,9 @@ impl PriceHistory {
             env::panic(b"Sorry, you are not allowed to record a price")
         }
         if usize::from(self.recorded) < HISTORY_DEPTH {
+            // Hint: no overflow check required until the const assert holds
+            // true.
+            static_assertions::const_assert_ne!(HISTORY_DEPTH, usize::MAX);
             self.recorded += 1;
         }
         self.price_history.push(price)
