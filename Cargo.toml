@@ -1,5 +1,5 @@
 [package]
-name = "near-smart-contract-coinmarkercap"
+name = "near-smart-contract-coinmarketcap"
 version = "0.1.0"
 edition = "2021"
 
