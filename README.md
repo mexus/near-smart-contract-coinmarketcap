@@ -6,11 +6,14 @@ That are my first steps in creating blockchain smart-contracts using the
 # Where is it?
 
 The contract is currently deployed at `coinmarketcap.mexus.testnet`, calculating
-average BTC price. To get the current average, replace ACCOUNT_NAME with you
-account on the testnet and run the following:
+average BTC price. To get the current average (amongst the latest 5 values),
+replace ACCOUNT_NAME with you account on the testnet and run the following:
 ```shell
 $ near view coinmarketcap.mexus.testnet get_average --accountId ACCOUNT_NAME
 ```
+
+As of the 20th of February, 2022, the contract is populated with a BTC price
+obtained from the [CoinMarketCap](https://coinmarketcap.com/) on a hourly basis.
 
 # How to deploy and test
 
@@ -26,7 +29,7 @@ $ cargo build --target wasm32-unknown-unknown --release
 ```
 2. Deploy
 ```shell
-$ near dev-deploy -f --wasmFile target/wasm32-unknown-unknown/release/near_smart_contract_coinmarkercap.wasm
+$ near dev-deploy -f --wasmFile target/wasm32-unknown-unknown/release/near_smart_contract_coinmarketcap.wasm
 ```
 3. Add prices
 ```shell
